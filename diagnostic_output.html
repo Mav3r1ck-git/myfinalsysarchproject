@@ -1,0 +1,153 @@
+ <h1>Announcement System Diagnostic</h1><h2>Database Connection</h2><p>Database connection: <strong>SUCCESS</strong></p><p>PDO driver name: mysql</p><p>Server version: 10.4.32-MariaDB</p><h2>Admins Table</h2><p>Table exists: Yes</p><h3>Table Structure:</h3><pre>Array
+(
+    [0] => Array
+        (
+            [Field] => id
+            [Type] => int(11)
+            [Null] => NO
+            [Key] => PRI
+            [Default] => 
+            [Extra] => auto_increment
+        )
+
+    [1] => Array
+        (
+            [Field] => admin_id
+            [Type] => varchar(20)
+            [Null] => NO
+            [Key] => UNI
+            [Default] => 
+            [Extra] => 
+        )
+
+    [2] => Array
+        (
+            [Field] => first_name
+            [Type] => varchar(50)
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [3] => Array
+        (
+            [Field] => middle_name
+            [Type] => varchar(50)
+            [Null] => YES
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [4] => Array
+        (
+            [Field] => last_name
+            [Type] => varchar(50)
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [5] => Array
+        (
+            [Field] => email
+            [Type] => varchar(100)
+            [Null] => NO
+            [Key] => UNI
+            [Default] => 
+            [Extra] => 
+        )
+
+    [6] => Array
+        (
+            [Field] => password
+            [Type] => varchar(255)
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [7] => Array
+        (
+            [Field] => created_at
+            [Type] => timestamp
+            [Null] => NO
+            [Key] => 
+            [Default] => current_timestamp()
+            [Extra] => 
+        )
+
+)
+</pre><p>Number of records: 2</p><h3>Admin Records:</h3><table border='1' cellpadding='5'><tr><th>id</th><th>admin_id</th><th>first_name</th><th>middle_name</th><th>last_name</th><th>email</th><th>password</th><th>created_at</th></tr><tr><td>1</td><td>Admin1000</td><td>John Maverick</td><td>P.</td><td>Villarta</td><td></td><td>$2y$10$CBXbgb5QfEn5u2RanJoUJuPaX0PxHDvajJHVCx8gwURjm4i7bGVOe</td><td>2025-05-15 11:41:22</td></tr><tr><td>2</td><td>1</td><td>Admin</td><br />
+<b>Deprecated</b>:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in <b>C:\xampp\htdocs\my_final_sysarch_project\diagnostic.php</b> on line <b>57</b><br />
+<td></td><td>User</td><td>admin@example.com</td><td>$2y$10$qyMqeT93e3LhSjjiGbBlaukM7HqOEKZICRqVQkjk12ifhBQk/rqNS</td><td>2025-05-15 13:02:56</td></tr></table><h2>Announcements Table</h2><p>Table exists: Yes</p><h3>Table Structure:</h3><pre>Array
+(
+    [0] => Array
+        (
+            [Field] => id
+            [Type] => int(11)
+            [Null] => NO
+            [Key] => PRI
+            [Default] => 
+            [Extra] => auto_increment
+        )
+
+    [1] => Array
+        (
+            [Field] => title
+            [Type] => varchar(255)
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [2] => Array
+        (
+            [Field] => content
+            [Type] => text
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [3] => Array
+        (
+            [Field] => created_by
+            [Type] => int(11)
+            [Null] => NO
+            [Key] => 
+            [Default] => 
+            [Extra] => 
+        )
+
+    [4] => Array
+        (
+            [Field] => created_at
+            [Type] => timestamp
+            [Null] => NO
+            [Key] => 
+            [Default] => current_timestamp()
+            [Extra] => 
+        )
+
+    [5] => Array
+        (
+            [Field] => updated_at
+            [Type] => timestamp
+            [Null] => NO
+            [Key] => 
+            [Default] => current_timestamp()
+            [Extra] => on update current_timestamp()
+        )
+
+)
+</pre><p>Number of records: 8</p><h3>Announcement Records:</h3><table border='1' cellpadding='5'><tr><th>id</th><th>title</th><th>content</th><th>created_by</th><th>created_at</th><th>updated_at</th></tr><tr><td>1</td><td>dasda</td><td>asdfas</td><td>1</td><td>2025-05-15 12:51:40</td><td>2025-05-15 12:51:40</td></tr><tr><td>2</td><td>dasda</td><td>asdfas</td><td>1</td><td>2025-05-15 12:51:43</td><td>2025-05-15 12:51:43</td></tr><tr><td>3</td><td>dasda</td><td>asdfas</td><td>1</td><td>2025-05-15 12:53:47</td><td>2025-05-15 12:53:47</td></tr><tr><td>4</td><td>hellow</td><td>world</td><td>1</td><td>2025-05-15 12:54:36</td><td>2025-05-15 12:54:36</td></tr><tr><td>5</td><td>hellow</td><td>world</td><td>1</td><td>2025-05-15 12:54:39</td><td>2025-05-15 12:54:39</td></tr><tr><td>6</td><td>hellow</td><td>world</td><td>1</td><td>2025-05-15 12:56:43</td><td>2025-05-15 12:56:43</td></tr><tr><td>7</td><td>asd</td><td>asd</td><td>1</td><td>2025-05-15 12:56:47</td><td>2025-05-15 12:56:47</td></tr><tr><td>8</td><td>Welcome to the Student Portal</td><td>&lt;p&gt;Welcome to our new student portal system! Here you can access all your academic resources.&lt;/p&gt;</td><td>1</td><td>2025-05-15 13:02:56</td><td>2025-05-15 13:02:56</td></tr></table><h2>JOIN Query Test</h2><p>Number of records returned by JOIN: 5</p><h3>JOIN Result:</h3><table border='1' cellpadding='5'><tr><th>id</th><th>title</th><th>content</th><th>created_by</th><th>created_at</th><th>updated_at</th><th>first_name</th><th>last_name</th></tr><tr><td>8</td><td>Welcome to the Student Portal</td><td>&lt;p&gt;Welcome to our new student portal system! Here you can access all your academic resources.&...</td><td>1</td><td>2025-05-15 13:02:56</td><td>2025-05-15 13:02:56</td><td>Admin</td><td>User</td></tr><tr><td>7</td><td>asd</td><td>asd...</td><td>1</td><td>2025-05-15 12:56:47</td><td>2025-05-15 12:56:47</td><td>Admin</td><td>User</td></tr><tr><td>6</td><td>hellow</td><td>world...</td><td>1</td><td>2025-05-15 12:56:43</td><td>2025-05-15 12:56:43</td><td>Admin</td><td>User</td></tr><tr><td>5</td><td>hellow</td><td>world...</td><td>1</td><td>2025-05-15 12:54:39</td><td>2025-05-15 12:54:39</td><td>Admin</td><td>User</td></tr><tr><td>4</td><td>hellow</td><td>world...</td><td>1</td><td>2025-05-15 12:54:36</td><td>2025-05-15 12:54:36</td><td>Admin</td><td>User</td></tr></table><h2>Session Info</h2><br />
+<b>Warning</b>:  session_start(): Session cannot be started after headers have already been sent in <b>C:\xampp\htdocs\my_final_sysarch_project\diagnostic.php</b> on line <b>181</b><br />
+<pre><br />
+<b>Warning</b>:  Undefined global variable $_SESSION in <b>C:\xampp\htdocs\my_final_sysarch_project\diagnostic.php</b> on line <b>183</b><br />
+</pre> 

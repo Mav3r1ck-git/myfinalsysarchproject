@@ -1,0 +1,242 @@
+[2025-05-15 06:53:47] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["dasda","content_length:6",1] Result: SUCCESS
+[2025-05-15 06:53:48] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:53:53] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:53:55] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:54:28] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:54:36] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["hellow","content_length:5",1] Result: SUCCESS
+[2025-05-15 06:54:36] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:54:39] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["hellow","content_length:5",1] Result: SUCCESS
+[2025-05-15 06:54:39] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:54:51] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 06:54:53] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 06:54:56] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 06:54:56] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 06:56:43] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["hellow","content_length:5",1] Result: SUCCESS
+[2025-05-15 06:56:43] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:56:47] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["asd","content_length:3",1] Result: SUCCESS
+[2025-05-15 06:56:47] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.admin_id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 06:58:14] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 06:58:17] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:01:00] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.admin_id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:04:56] Query: Admin data retrieved Params: {"admin_id":1} Result: SUCCESS
+[2025-05-15 07:04:56] Query: INSERT INTO announcements (title, content, created_by) VALUES (?, ?, ?) Params: ["asd","content_length:3",1] Result: SUCCESS
+[2025-05-15 07:04:56] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 07:05:03] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:05:42] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:15:09] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:15:46] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:18:11] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:18:16] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:18:36] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:21:47] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:24:13] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:45:20] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:56:53] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 07:57:29] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:36:59] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:37:03] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:37:07] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:37:11] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:40:43] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:40:48] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-15 08:42:48] Query: Admin data retrieved Params: {"admin_id":1} Result: SUCCESS
+[2025-05-15 08:42:49] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-15 08:52:20] Query: Admin data retrieved Params: {"admin_id":1} Result: SUCCESS
+[2025-05-15 08:52:21] Query: SELECT a.*, ad.first_name, ad.last_name 
+                            FROM announcements a
+                            JOIN admins ad ON a.created_by = ad.id
+                            ORDER BY a.created_at DESC Result: SUCCESS
+[2025-05-16 03:09:31] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-16 03:30:18] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
