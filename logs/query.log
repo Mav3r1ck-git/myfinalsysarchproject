@@ -240,3 +240,38 @@
         ORDER BY a.created_at DESC
         LIMIT 5
      Result: SUCCESS
+[2025-05-16 03:35:41] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-16 03:40:50] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-16 03:54:31] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-16 04:14:55] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS
+[2025-05-16 04:15:03] Query: 
+        SELECT a.*, ad.first_name, ad.last_name 
+        FROM announcements a
+        JOIN admins ad ON a.created_by = ad.id
+        ORDER BY a.created_at DESC
+        LIMIT 5
+     Result: SUCCESS

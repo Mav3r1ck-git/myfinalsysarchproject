@@ -10,7 +10,19 @@ if (!isset($_SESSION['admin_id'])) {
 
 // Get unread notifications count for admin
 $unread_count = count_unread_notifications($_SESSION['admin_id']);
-$notifications = get_unread_notifications($_SESSION['admin_id'], 5);
+
+// Get all unread notifications with better error handling
+try {
+    $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
+    // Ensure notifications array is valid
+    if (!is_array($notifications)) {
+        $notifications = [];
+    }
+} catch (Exception $e) {
+    // Log error if possible
+    error_log("Error fetching notifications: " . $e->getMessage());
+    $notifications = [];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,6 +105,9 @@ $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
         .notification-dropdown {
             width: 320px;
             padding: 0;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1050 !important;
         }
         .notification-header {
             display: flex;
@@ -100,26 +115,47 @@ $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
             align-items: center;
             padding: 10px 15px;
             border-bottom: 1px solid #e9ecef;
+            background-color: #f8f9fa;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        .notification-items {
+            max-height: 300px;
+            overflow-y: auto;
         }
         .notification-item {
             padding: 10px 15px;
             border-bottom: 1px solid #e9ecef;
             transition: background-color 0.3s;
+            position: relative;
         }
         .notification-item:hover {
             background-color: #f8f9fa;
         }
-        .unread {
+        .notification-item.unread {
             background-color: #e8f4fd;
+        }
+        .notification-item.unread:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #0d6efd;
         }
         .notification-title {
             font-weight: bold;
             margin-bottom: 5px;
+            color: #212529;
         }
         .notification-message {
             color: #6c757d;
             font-size: 0.9rem;
             margin-bottom: 5px;
+            word-break: break-word;
         }
         .notification-time {
             color: #adb5bd;
@@ -128,6 +164,11 @@ $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
         .notification-footer {
             text-align: center;
             padding: 10px;
+            border-top: 1px solid #e9ecef;
+            background-color: #f8f9fa;
+            position: sticky;
+            bottom: 0;
+            z-index: 1;
         }
         /* Responsive fixes */
         @media (max-width: 991px) {
@@ -212,24 +253,26 @@ $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
                         
                         <?php if (empty($notifications)): ?>
                         <div class="p-3 text-center text-muted">
-                            <i class="fas fa-bell-slash mb-2"></i>
+                            <i class="fas fa-bell-slash mb-2 d-block"></i>
                             <p class="mb-0">No notifications</p>
                         </div>
                         <?php else: ?>
-                            <?php foreach ($notifications as $notification): ?>
-                            <div class="notification-item unread">
-                                <div class="notification-title">
-                                    <?php echo htmlspecialchars($notification['title']); ?>
+                            <div class="notification-items">
+                                <?php foreach ($notifications as $notification): ?>
+                                <div class="notification-item <?php echo (!$notification['is_read']) ? 'unread' : ''; ?>">
+                                    <div class="notification-title">
+                                        <?php echo htmlspecialchars($notification['title']); ?>
+                                    </div>
+                                    <div class="notification-message">
+                                        <?php echo htmlspecialchars($notification['message']); ?>
+                                    </div>
+                                    <div class="notification-time">
+                                        <i class="far fa-clock me-1"></i>
+                                        <?php echo date('M d, Y h:i A', strtotime($notification['created_at'])); ?>
+                                    </div>
                                 </div>
-                                <div class="notification-message">
-                                    <?php echo htmlspecialchars($notification['message']); ?>
-                                </div>
-                                <div class="notification-time">
-                                    <i class="far fa-clock me-1"></i>
-                                    <?php echo date('M d, Y h:i A', strtotime($notification['created_at'])); ?>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
-                            <?php endforeach; ?>
                         <?php endif; ?>
                         
                         <div class="notification-footer">
@@ -242,3 +285,81 @@ $notifications = get_unread_notifications($_SESSION['admin_id'], 5);
         
         <!-- Main content container -->
         <div class="container-fluid px-0"> 
+        
+                <!-- JavaScript to ensure notifications work -->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Initialize dropdown with positioning parameters
+                    var notificationDropdown = document.getElementById('notificationDropdown');
+                    if (notificationDropdown) {
+                        // Create dropdown with specific config to ensure proper display
+                        var dropdown = new bootstrap.Dropdown(notificationDropdown, {
+                            offset: [0, 10],
+                            popperConfig: {
+                                placement: 'bottom-end'
+                            }
+                        });
+                        
+                        // Add click event to notification bell
+                        notificationDropdown.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            dropdown.toggle();
+                        });
+                        
+                        // Force dropdown to update its position when shown
+                        notificationDropdown.addEventListener('shown.bs.dropdown', function() {
+                            var dropdownMenu = document.querySelector('.notification-dropdown');
+                            if (dropdownMenu) {
+                                dropdownMenu.style.display = 'block';
+                                dropdownMenu.style.position = 'absolute';
+                                dropdownMenu.style.inset = '0px 0px auto auto';
+                                dropdownMenu.style.transform = 'translate(-8px, 40px)';
+                            }
+                        });
+                    }
+                    
+                    // Check for notifications via AJAX
+                    function checkForNewNotifications() {
+                        fetch('reload_admin_notifications.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    // Update notification count badge
+                                    const badge = document.querySelector('.notification-badge');
+                                    const notificationContainer = document.querySelector('.notification-dropdown');
+                                    const notificationsContent = notificationContainer.querySelector('.notification-header').nextElementSibling;
+                                    
+                                    // Update badge
+                                    if (data.count > 0) {
+                                        if (badge) {
+                                            badge.textContent = data.count > 9 ? '9+' : data.count;
+                                        } else {
+                                            const newBadge = document.createElement('span');
+                                            newBadge.className = 'position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notification-badge';
+                                            newBadge.textContent = data.count > 9 ? '9+' : data.count;
+                                            document.getElementById('notificationDropdown').appendChild(newBadge);
+                                        }
+                                    } else if (badge) {
+                                        badge.remove();
+                                    }
+                                    
+                                    // Update notification content
+                                    notificationsContent.outerHTML = data.html;
+                                    
+                                    console.log('Notifications updated:', data.count > 0 ? data.count + ' unread' : 'None');
+                                } else {
+                                    console.error('Error updating notifications:', data.message);
+                                }
+                            })
+                            .catch(error => console.error('Error checking notifications:', error));
+                    }
+                    
+                    // Set interval for notification checking (15 seconds)
+                    setInterval(checkForNewNotifications, 15000);
+                    
+                                        // Test notification button has been removed
+                });
+                </script>
+    </div>
+</body>
+</html> 
